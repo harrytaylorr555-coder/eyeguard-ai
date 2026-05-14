@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../eyeguard.db"
+}
+
+model User {
+  id            String   @id @default(cuid())
+  telegramId    String   @unique
+  firstName     String?
+  lastName      String?
+  username      String?
+  screenHours   Int?
+  hasProblems   Boolean?
+  reminderTime  String?
+  isPremium     Boolean  @default(false)
+  premiumUntil  DateTime?
+  timezone      String?
+  symptoms      String?
+  reminderCount Int      @default(3)
+  onboardingStep Int    @default(0)
+  referralCode  String?  @unique
+  referredBy    String?
+  coins         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  exercises       ExerciseLog[]
+  visionTests     VisionTest[]
+  dailyLogs       DailyLog[]
+  referrals       User[]             @relation("ReferralChain")
+  referrer        User?              @relation("ReferralChain", fields: [referredBy], references: [telegramId])
+  referralRewards ReferralReward[]
+}
+
+model ReferralReward {
+  id         String    @id @default(cuid())
+  userId     String
+  milestone  Int       // 1, 3, 5, 10, 20
+  rewardType String    // "premium_days", "theme", "streak_protect", "premium_tests", "badge"
+  claimed    Boolean   @default(false)
+  claimedAt  DateTime?
+  user       User      @relation(fields: [userId], references: [id])
+
+  @@unique([userId, milestone])
+}
+
+model ExerciseLog {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String
+  completedAt DateTime @default(now())
+  duration    Int
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([userId, completedAt])
+}
+
+model VisionTest {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String
+  result      String
+  completedAt DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
+
+model DailyLog {
+  id            String   @id @default(cuid())
+  userId        String
+  date          DateTime
+  feeling       Int
+  exerciseCount Int      @default(0)
+  screenTime    Int?
+  user          User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, date])
+  @@index([userId])
+}

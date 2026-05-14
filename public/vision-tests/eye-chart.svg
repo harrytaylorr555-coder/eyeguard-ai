@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="white"/>
+  <text x="200" y="60" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333" font-weight="bold">Таблица для проверки зрения</text>
+  <text x="200" y="80" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#999">Держите экран на расстоянии 40 см</text>
+  <text x="200" y="115" text-anchor="middle" font-family="monospace" font-size="48" fill="#222">Ш Б</text>
+  <text x="200" y="155" text-anchor="middle" font-family="monospace" font-size="36" fill="#222">М Н К</text>
+  <text x="200" y="190" text-anchor="middle" font-family="monospace" font-size="26" fill="#222">Ы М Б Ш</text>
+  <text x="200" y="220" text-anchor="middle" font-family="monospace" font-size="20" fill="#222">Б Ы Н К М</text>
+  <text x="200" y="248" text-anchor="middle" font-family="monospace" font-size="15" fill="#222">И М Ш Ы Н Б</text>
+  <text x="200" y="280" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#aaa">Адаптированная таблица Сивцева</text>
+</svg>

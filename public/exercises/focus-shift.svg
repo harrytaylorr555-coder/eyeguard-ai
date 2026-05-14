@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <rect width="200" height="120" rx="16" fill="#f59e0b" opacity="0.1"/>
+  <circle cx="55" cy="55" r="12" fill="#f59e0b" opacity="0.4"/>
+  <circle cx="145" cy="55" r="8" fill="#f59e0b" opacity="0.25"/>
+  <line x1="67" y1="55" x2="137" y2="55" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3"/>
+  <text x="100" y="100" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#f59e0b" font-weight="600">Смена фокуса · 1 мин</text>
+</svg>
