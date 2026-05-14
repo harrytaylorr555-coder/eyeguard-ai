@@ -46,7 +46,11 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 
 app.listen(PORT, () => {
   console.log(`EyeGuard API running on port ${PORT} (${NODE_ENV})`);
+  console.log(`Render PORT env: ${process.env.PORT || 'not set'}`);
 });
 
 export default app;
+
+
+
 
